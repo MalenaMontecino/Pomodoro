@@ -1,4 +1,28 @@
-body{
-    background-image: url(../img/background.jpg); 
-    
+body {
+    background-image: url(../img/background1.jpg);
+    background-size: cover;
+    /* background-repeat: no-repeat;
+    background-position: center; */
 }
+#ajustes{
+    width: fit-content;
+    height: 70%; 
+    border-radius: 15px; 
+    backdrop-filter: blur(5px); 
+    opacity: 100%;
+    z-index: 3;
+ }
+#ajustesBody{
+    width: fit-content;
+}
+#tareas, #config{
+   /* width: 95%;  */
+   height: 80%; 
+   border-radius: 15px; 
+   backdrop-filter: blur(5px); 
+   opacity: 40%;
+   z-index: 2;
+   margin-top: 25%;
+  
+}
+
