@@ -7,14 +7,13 @@
     <title>Pomodoro</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="/css/css.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
 </head>
 
-
 <body>
-
     <div id="panelCentral" class="row">
         <div class="row text-center">
-            <p  style="font-size: 50px;">POMODORO</p>
+            <p style="font-size: 50px;">POMODORO</p>
         </div>
         <!-- AJUSTES -->
         <div class="col-3">
@@ -22,19 +21,35 @@
                 <div id="configBody" class="card-body">
                     <h5 class="card-title">CONFIGURACIÓN</h5>
 
-                <p style="font-size: 80px;"> 25:00</p>
+                    <hr>
+                    <p style="font-size: 80px;"> 25:00</p>
+                    <button type="button" class="btn btn-light btn-round">
+                        <span class="material-symbols-rounded">
+                            pause
+                            </span>
+                    </button>
+                        <button type="button" class="btn btn-light btn-round"><span class="material-symbols-rounded">
+                            stop
+                            </span></button>
+                            <button type="button" class="btn btn-light btn-round"><span class="material-symbols-rounded">
+                                play_arrow
+                                </span></button>
+                    <hr>
+                    <p>Elige el tipo de pausa</p>
 
-                <button type="button" class="btn btn-light">Nueva tarea</button>
-                    <P>Velit fugiat ullamco sunt ad enim duis esse. Consequat sunt quis adipisicing est nisi pariatur
-                        est voluptate esse anim. Esse labore reprehenderit sint non consequat aliqua.
+                    <button type="button" class="btn btn-light">5 min</button>
+                    <button type="button" class="btn btn-light">15 min</button>
 
-
-
-
-
-                    </P>
                 </div>
             </div>
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-outline-secondary" id="btnNuevaTarea" data-bs-toggle="modal"
+                    data-bs-target="#nuevaTareaModal">
+                    Nueva tarea
+                </button>
+            </div>
+
+
         </div>
         <!-- TAREAS -->
         <div class="col-9">
@@ -46,27 +61,40 @@
                         <div id="toDo" class="card  mb-3 ">
                             <div class="card-body" style="background-color: transparent;">
                                 <h5 class="card-title text-center ">TO DO</h5>
+                                <div class="columna-Tareas-To-Do" style="max-height: 62vh; overflow-y: auto;">
+                                    <div class="card mt-4 m-2">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <h5 class="card-title">Autoevaluación</h5>
+                                                </div>
+                                                <button type="button" class="btn-close d-flex justify-content-end"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <p class="card-text">Autoevaluar el curso</p>
+                                            <p style="opacity:70%;" class="card-text  d-flex justify-content-end">
+                                                25/04/2024
+                                                10:23</p>
 
-                                <div class="card mt-4 m-2">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Título</h5>
-                                        <p class="card-text">Descripción</p>
-                                        <p class="card-text">Fecha y hora</p>
-                                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card mt-4 m-2">
+                                        <div class="card-header d-flex justify-content-between"
+                                            style="background-color: rgb(240, 248, 255);">
+                                            <span>M06</span>
+                                            <button type="button" class="btn-close" aria-label="Close"></button>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Evento js</h5>
+                                            <p class="card-text">Completar la ficha</p>
+                                            <p style="opacity:70%;" class="card-text d-flex justify-content-end">
+                                                25/04/2024
+                                                10:23</p>
+
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="card mt-4 m-2">
-                                    <div class="card-header" style="background-color: rgb(255, 248, 240);">
-                                        Categoria
-                                      </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Título</h5>
-                                        <p class="card-text">Descripción</p>
-                                        <p class="card-text">Fecha y hora</p>
-                                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                                    </div>
-                                </div>
-                               
                             </div>
                         </div>
                     </div>
@@ -75,15 +103,20 @@
                         <div id="doing" class="card  mb-3  ">
                             <div class="card-body">
                                 <h5 class="card-title text-center">DOING</h5>
-                                <div class="card mt-4 m-2">
-                                    <div class="card-header" style="background-color: aliceblue;">
-                                        Categoria
-                                      </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Título</h5>
-                                        <p class="card-text">Descripción</p>
-                                        <p class="card-text">Fecha y hora</p>
-                                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                <div class="columna-Tareas-Doing" style="max-height: 62vh; overflow-y: auto;">
+                                    <div class="card mt-4 m-2">
+                                        <div class="card-header d-flex justify-content-between"
+                                            style="background-color: rgb(245, 240, 255);">
+                                            <span>M09</span>
+                                            <button type="button" class="btn-close" aria-label="Close"></button>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Cuento diseño</h5>
+                                            <p class="card-text">Completar el cuento de diseño y enviarlo</p>
+                                            <p style="opacity:70%;" class="card-text d-flex justify-content-end">
+                                                25/04/2024
+                                                10:23</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -91,46 +124,97 @@
                     </div>
                     <div class="col-4">
 
-                        <div id="done" class="card  mb-3 ">
+                        <div id="done" class="card  mb-3">
                             <div class="card-body">
                                 <h5 class="card-title text-center">DONE</h5>
-                                <div class="card mt-4 m-2">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Título</h5>
-                                        <p class="card-text">Descripción</p>
-                                        <p class="card-text">Fecha y hora</p>
-                                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                <div class="columna-Tareas-Done" style="max-height: 62vh; overflow-y: auto;">
+                                    <div class="card mt-4 m-2">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <h5 class="card-title">Organización</h5>
+                                                </div>
+                                                <button type="button" class="btn-close d-flex justify-content-end"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <p class="card-text">Recoger la habitación</p>
+                                            <p style="opacity:70%;" class="card-text  d-flex justify-content-end">
+                                                25/04/2024
+                                                10:23</p>
+
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="card mt-4 m-2">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Título</h5>
-                                        <p class="card-text">Descripción</p>
-                                        <p class="card-text">Fecha y hora</p>
-                                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                    <div class="card mt-4 m-2">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <h5 class="card-title">Meditar</h5>
+                                                </div>
+                                                <button type="button" class="btn-close d-flex justify-content-end"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <p class="card-text">Meditación 15min</p>
+                                            <p style="opacity:70%;" class="card-text  d-flex justify-content-end">
+                                                25/04/2024
+                                                10:23</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="card mt-4 m-2">
-                                    <div class="card-header" style="background-color: rgb(245, 240, 255);">
-                                        Categoria
-                                      </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Título</h5>
-                                        <p class="card-text">Descripción</p>
-                                        <p class="card-text">Fecha y hora</p>
-                                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                    <div class="card mt-4 m-2">
+                                        <div class="card-header d-flex justify-content-between"
+                                            style="background-color: rgb(240, 255, 243);">
+                                            <span>M07</span>
+                                            <button type="button" class="btn-close" aria-label="Close"></button>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Collections</h5>
+                                            <p class="card-text">Acabar update</p>
+                                            <p style="opacity:70%;" class="card-text  d-flex justify-content-end ">
+                                                25/04/2024 10:23</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
-
+    <!-- Modal para crear una nueva tarea -->
+    <div class="modal fade" id="nuevaTareaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="margin-top:30%;">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Crear nueva tarea</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Aquí va tu formulario para crear una nueva tarea -->
+                    <form>
+                        <div class="mb-3" style="margin-left: 10%; margin-right: 10%;">
+                            <label for="nombreTarea" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombreTarea" required>
+                            <label for="descripcionTarea" class="form-label">Descripción</label>
+                            <input type="text" class="form-control" id="descripcionTarea" required>
+                    
+                            <div class="form-check form-switch mt-3">
+                                <input class="form-check-input" type="checkbox" id="switchCategoria">
+                                <label class="form-check-label" for="switchCategoria">Agregar categoría</label>
+                            </div>
+                    
+                            <div class="mt-3" id="inputCategoria" style="display: none;">
+                                <label for="nombreCategoria" class="form-label">Nombre de la categoría</label>
+                                <input type="text" class="form-control" id="nombreCategoria">
+                                <label for="colorCategoria" class="form-label">Color de la categoría</label>
+                                <input type="color" class="form-control" id="colorCategoria">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Crear tarea</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="/main.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">

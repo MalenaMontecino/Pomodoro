@@ -6,25 +6,33 @@ body {
 
 #config {
     position: relative;
-    /* Añade posición relativa para que el pseudo-elemento esté dentro de él */
-    /* height: 110%; */
+   
 }
 
 #tareasBckg {
     position: relative;
     height: 100%;
 
-    backdrop-filter: blur(5px);
+   
 }
-
+.btn-round {
+    border-radius: 50% !important;
+        width: 3rem; /* Ajusta el tamaño del botón según tus necesidades */
+        height: 3rem; /* Ajusta el tamaño del botón según tus necesidades */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0; /* Elimina el padding para evitar desbordamientos */
+}
+.material-symbols-outlined{
+    font-size: 20px;;
+}
 #toDo,
 #done,
 #doing {
-    height: 100%;
-    /* background-color: white; */
+    height: 75vh;
     opacity: 90%;
     z-index: 3;
-
 }
 
 #panelCentral {
@@ -34,7 +42,7 @@ body {
     margin-right: 5%;
     margin-bottom: 5%;
     padding: 2%;
-    height: 75vh;
+    height: 100vh;
     backdrop-filter: blur(5px);
     border-radius: 2px;
 
