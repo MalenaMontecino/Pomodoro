@@ -1,31 +1,41 @@
 body {
     background-image: url(../img/fondopeces.jpg);
-    background-size: cover; 
-    
+    background-size: cover;
+
 }
 
 #config {
-position: relative; /* Añade posición relativa para que el pseudo-elemento esté dentro de él */
-height: 110%;
+    position: relative;
+    /* Añade posición relativa para que el pseudo-elemento esté dentro de él */
+    /* height: 110%; */
 }
 
 #tareasBckg {
-position: relative; 
-height: 110%;
-backdrop-filter: blur(5px);
+    position: relative;
+    height: 100%;
 
+    backdrop-filter: blur(5px);
 }
 
 #toDo,
 #done,
 #doing {
-    height: 110%;
+    height: 100%;
     /* background-color: white; */
     opacity: 90%;
     z-index: 3;
-    
+
 }
 
 #panelCentral {
-    margin: 5%;
+    display: flex;
+    margin-top: 0;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    padding: 2%;
+    height: 75vh;
+    backdrop-filter: blur(5px);
+    border-radius: 2px;
+
 }

@@ -11,21 +11,26 @@
 
 
 <body>
+
     <div id="panelCentral" class="row">
+        <div class="row text-center">
+            <p  style="font-size: 50px;">POMODORO</p>
+        </div>
         <!-- AJUSTES -->
         <div class="col-3">
             <div id="config" class="card text-center mb-3  ">
                 <div id="configBody" class="card-body">
                     <h5 class="card-title">CONFIGURACIÓN</h5>
+
+                <p style="font-size: 80px;"> 25:00</p>
+
+                <button type="button" class="btn btn-light">Nueva tarea</button>
                     <P>Velit fugiat ullamco sunt ad enim duis esse. Consequat sunt quis adipisicing est nisi pariatur
                         est voluptate esse anim. Esse labore reprehenderit sint non consequat aliqua.
 
-                        Eu velit anim Lorem ut irure ea tempor. Culpa ullamco pariatur ea enim incididunt dolore laboris
-                        nostrud magna. Sit qui consequat do irure deserunt consequat cillum in. Nulla sint sint magna
-                        consequat voluptate ea amet incididunt non occaecat consectetur cupidatat. Eiusmod cillum
-                        occaecat irure labore eu esse ad cillum consequat velit quis ut tempor.
-                        
-                      
+
+
+
 
                     </P>
                 </div>
@@ -33,69 +38,95 @@
         </div>
         <!-- TAREAS -->
         <div class="col-9">
-            <div id="tareasBckg" style="backdrop-filter: blur(5px);" class="card text-center mb-3">
-                <!-- <div class="card-body"> 
-                     <div class=" row">
-                        <div class="col-4">
-                            
-                            <div id="toDo" class="card text-center mb-3 ">
-                                <div class="card-body" style="background-color: transparent;">
-                                    <h5 class="card-title">TO DO</h5>
-                                    <P>Velit fugiat ullamco sunt ad enim duis esse. Consequat sunt quis adipisicing est
-                                        nisi pariatur est voluptate esse anim. Esse labore reprehenderit sint non
-                                        consequat aliqua.
+            <div id="tareasBckg" style="backdrop-filter: blur(5px);">
 
-                                        Eu velit anim Lorem ut irure ea tempor. Culpa ullamco pariatur ea enim
-                                        incididunt dolore laboris nostrud magna. Sit qui consequat do irure deserunt
-                                        consequat cillum in. Nulla sint sint magna consequat voluptate ea amet
-                                        incididunt non occaecat consectetur cupidatat. Eiusmod cillum occaecat irure
-                                        labore eu esse ad cillum consequat velit quis ut tempor.
+                <div class=" row">
+                    <div class="col-4">
 
-                                    </P>
+                        <div id="toDo" class="card  mb-3 ">
+                            <div class="card-body" style="background-color: transparent;">
+                                <h5 class="card-title text-center ">TO DO</h5>
+
+                                <div class="card mt-4 m-2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Título</h5>
+                                        <p class="card-text">Descripción</p>
+                                        <p class="card-text">Fecha y hora</p>
+                                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                    </div>
                                 </div>
+                                <div class="card mt-4 m-2">
+                                    <div class="card-header" style="background-color: rgb(255, 248, 240);">
+                                        Categoria
+                                      </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Título</h5>
+                                        <p class="card-text">Descripción</p>
+                                        <p class="card-text">Fecha y hora</p>
+                                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                    </div>
+                                </div>
+                               
                             </div>
                         </div>
-                        <div class="col-4">
-                           
-                            <div id="doing" class="card text-center mb-3  ">
-                                <div class="card-body">
-                                    <h5 class="card-title">DOING</h5>
-                                    <P>Velit fugiat ullamco sunt ad enim duis esse. Consequat sunt quis adipisicing est
-                                        nisi pariatur est voluptate esse anim. Esse labore reprehenderit sint non
-                                        consequat aliqua.
+                    </div>
+                    <div class="col-4">
 
-                                        Eu velit anim Lorem ut irure ea tempor. Culpa ullamco pariatur ea enim
-                                        incididunt dolore laboris nostrud magna. Sit qui consequat do irure deserunt
-                                        consequat cillum in. Nulla sint sint magna consequat voluptate ea amet
-                                        incididunt non occaecat consectetur cupidatat. Eiusmod cillum occaecat irure
-                                        labore eu esse ad cillum consequat velit quis ut tempor.
-
-                                    </P>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            
-                            <div id="done" class="card text-center mb-3 ">
-                                <div class="card-body">
-                                    <h5 class="card-title">DONE</h5>
-                                    <P>Velit fugiat ullamco sunt ad enim duis esse. Consequat sunt quis adipisicing est
-                                        nisi pariatur est voluptate esse anim. Esse labore reprehenderit sint non
-                                        consequat aliqua.
-
-                                        Eu velit anim Lorem ut irure ea tempor. Culpa ullamco pariatur ea enim
-                                        incididunt dolore laboris nostrud magna. Sit qui consequat do irure deserunt
-                                        consequat cillum in. Nulla sint sint magna consequat voluptate ea amet
-                                        incididunt non occaecat consectetur cupidatat. Eiusmod cillum occaecat irure
-                                        labore eu esse ad cillum consequat velit quis ut tempor.
-
-                                        </P>
+                        <div id="doing" class="card  mb-3  ">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">DOING</h5>
+                                <div class="card mt-4 m-2">
+                                    <div class="card-header" style="background-color: aliceblue;">
+                                        Categoria
+                                      </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Título</h5>
+                                        <p class="card-text">Descripción</p>
+                                        <p class="card-text">Fecha y hora</p>
+                                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="col-4">
 
-                </div> -->
+                        <div id="done" class="card  mb-3 ">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">DONE</h5>
+                                <div class="card mt-4 m-2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Título</h5>
+                                        <p class="card-text">Descripción</p>
+                                        <p class="card-text">Fecha y hora</p>
+                                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                    </div>
+                                </div>
+                                <div class="card mt-4 m-2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Título</h5>
+                                        <p class="card-text">Descripción</p>
+                                        <p class="card-text">Fecha y hora</p>
+                                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                    </div>
+                                </div>
+                                <div class="card mt-4 m-2">
+                                    <div class="card-header" style="background-color: rgb(245, 240, 255);">
+                                        Categoria
+                                      </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Título</h5>
+                                        <p class="card-text">Descripción</p>
+                                        <p class="card-text">Fecha y hora</p>
+                                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </div>
