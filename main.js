@@ -1,14 +1,12 @@
-//es esto necesario
-document.getElementById('btnNuevaTarea').addEventListener('click', function () {
-    // Limpiar el formulario del modal antes de mostrarlo
-    document.getElementById('nombreTarea').value = '';
-});
+
 
 document.getElementById('switchCategoria').addEventListener('change', function () {
     const inputCategoria = document.getElementById('inputCategoria');
     inputCategoria.style.display = this.checked ? 'block' : 'none';
 });
 
+
+//CREACIÓN NUEVA TAREA
 document.querySelector('form').addEventListener('submit', function (event) {
     event.preventDefault(); // Evitar que el formulario se envíe automáticamente
 
@@ -61,24 +59,10 @@ document.querySelector('form').addEventListener('submit', function (event) {
     // Agregar la nueva tarjeta de tarea a la columna "To Do"
     document.querySelector('#toDo .columna-Tareas-To-Do').innerHTML += nuevaTarea;
 
-    // Cerrar el modal
-    const modal = new bootstrap.Modal(document.getElementById('nuevaTareaModal'));
-    modal.hide();
-
-    // Limpiar los campos del formulario
+    // Borrar el contenido de los campos del formulario
     document.getElementById('nombreTarea').value = '';
     document.getElementById('descripcionTarea').value = '';
-    document.getElementById('switchCategoria').checked = false;
-    document.getElementById('inputCategoria').style.display = 'none';
+
 });
 
-// Agregar evento click al botón de cierre del modal
-document.querySelector('.modal .btn-close').addEventListener('click', function () {
-    // Limpiar los campos del formulario
-    document.getElementById('nombreTarea').value = '';
-    document.getElementById('descripcionTarea').value = '';
-    document.getElementById('nombreCategoria').value = '';
-    document.getElementById('colorCategoria').value = '';
-    document.getElementById('switchCategoria').checked = false;
-    document.getElementById('inputCategoria').style.display = 'none';
-});
+
