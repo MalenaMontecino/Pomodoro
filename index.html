@@ -7,7 +7,8 @@
     <title>Pomodoro</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="/css/css.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
 </head>
 
 <body>
@@ -17,23 +18,24 @@
         </div>
         <!-- AJUSTES -->
         <div class="col-3">
-            <div id="config" class="card text-center mb-3  ">
+            <div id="config" class="card text-center mb-3 ">
                 <div id="configBody" class="card-body">
                     <h5 class="card-title">CONFIGURACIÓN</h5>
-
                     <hr>
                     <p style="font-size: 80px;"> 25:00</p>
-                    <button type="button" class="btn btn-light btn-round">
-                        <span class="material-symbols-rounded">
-                            pause
-                            </span>
-                    </button>
-                        <button type="button" class="btn btn-light btn-round"><span class="material-symbols-rounded">
-                            stop
-                            </span></button>
-                            <button type="button" class="btn btn-light btn-round"><span class="material-symbols-rounded">
-                                play_arrow
-                                </span></button>
+
+                    <div id="buttonsTimer">
+                        <button type="button" class="btn btn-light btn-round">
+                            <span class="material-symbols-rounded">pause</span>
+                        </button>
+                        <button type="button" class="btn btn-light btn-round">
+                            <span class="material-symbols-rounded">stop</span>
+                        </button>
+                        <button type="button" class="btn btn-light btn-round">
+                            <span class="material-symbols-rounded">play_arrow</span>
+                        </button>
+                    </div>
+
                     <hr>
                     <p>Elige el tipo de pausa</p>
 
@@ -62,7 +64,7 @@
                             <div class="card-body" style="background-color: transparent;">
                                 <h5 class="card-title text-center ">TO DO</h5>
                                 <div class="columna-Tareas-To-Do" style="max-height: 62vh; overflow-y: auto;">
-                                    <div class="card mt-4 m-2">
+                                    <!-- <div class="card mt-4 m-2">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-10">
@@ -78,8 +80,8 @@
 
                                         </div>
                                     </div>
-                                    
-                                    <div class="card mt-4 m-2">
+
+                                    <div class="card mt-4 m-2" style="background-color: white !important;">
                                         <div class="card-header d-flex justify-content-between"
                                             style="background-color: rgb(240, 248, 255);">
                                             <span>M06</span>
@@ -93,7 +95,7 @@
                                                 10:23</p>
 
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -104,9 +106,9 @@
                             <div class="card-body">
                                 <h5 class="card-title text-center">DOING</h5>
                                 <div class="columna-Tareas-Doing" style="max-height: 62vh; overflow-y: auto;">
-                                    <div class="card mt-4 m-2">
+                                    <!-- <div class="card mt-4 m-2">
                                         <div class="card-header d-flex justify-content-between"
-                                            style="background-color: rgb(245, 240, 255);">
+                                            style="background-color: rgb(247, 247, 247);">
                                             <span>M09</span>
                                             <button type="button" class="btn-close" aria-label="Close"></button>
                                         </div>
@@ -117,7 +119,7 @@
                                                 25/04/2024
                                                 10:23</p>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -128,7 +130,7 @@
                             <div class="card-body">
                                 <h5 class="card-title text-center">DONE</h5>
                                 <div class="columna-Tareas-Done" style="max-height: 62vh; overflow-y: auto;">
-                                    <div class="card mt-4 m-2">
+                                   <!-- <div class="card mt-4 m-2">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-10">
@@ -144,7 +146,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="card mt-4 m-2">
+                                     <div class="card mt-4 m-2">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-10">
@@ -161,7 +163,7 @@
                                     </div>
                                     <div class="card mt-4 m-2">
                                         <div class="card-header d-flex justify-content-between"
-                                            style="background-color: rgb(240, 255, 243);">
+                                            style="background-color: rgb(250, 230, 199);">
                                             <span>M07</span>
                                             <button type="button" class="btn-close" aria-label="Close"></button>
                                         </div>
@@ -171,8 +173,8 @@
                                             <p style="opacity:70%;" class="card-text  d-flex justify-content-end ">
                                                 25/04/2024 10:23</p>
                                         </div>
-                                    </div>
-                                </div>
+                                    </div>-->
+                                </div> 
                             </div>
                         </div>
                     </div>
@@ -189,25 +191,27 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <!-- Aquí va tu formulario para crear una nueva tarea -->
                     <form>
                         <div class="mb-3" style="margin-left: 10%; margin-right: 10%;">
                             <label for="nombreTarea" class="form-label">Nombre</label>
                             <input type="text" class="form-control" id="nombreTarea" required>
                             <label for="descripcionTarea" class="form-label">Descripción</label>
                             <input type="text" class="form-control" id="descripcionTarea" required>
-                    
+
                             <div class="form-check form-switch mt-3">
                                 <input class="form-check-input" type="checkbox" id="switchCategoria">
                                 <label class="form-check-label" for="switchCategoria">Agregar categoría</label>
                             </div>
-                    
+
                             <div class="mt-3" id="inputCategoria" style="display: none;">
-                                <label for="nombreCategoria" class="form-label">Nombre de la categoría</label>
-                                <input type="text" class="form-control" id="nombreCategoria">
-                                <label for="colorCategoria" class="form-label">Color de la categoría</label>
-                                <input type="color" class="form-control" id="colorCategoria">
+                                <label for="categoriaSelect" class="form-label">Selecciona una categoría</label>
+                                <select id="categoriaSelect" class="form-select">
+                                    <option value="Personal" data-color="rgb(250, 230, 199)">Personal</option>
+                                    <option value="Trabajo" data-color="rgb(247, 247, 247)">Trabajo</option>
+                                    <option value="Clase" data-color="rgb(240, 248, 255)">Clase</option>
+                                </select>
                             </div>
+                            
                         </div>
                         <button type="submit" class="btn btn-primary">Crear tarea</button>
                     </form>
