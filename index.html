@@ -22,30 +22,37 @@
                 <div id="configBody" class="card-body">
                     <h5 class="card-title">CONFIGURACIÓN</h5>
                     <hr>
+                    
+                    <!-- <video id="greenScreenVideo" class="hidden" autoplay loop>
+                        <source src="img/Cat Dances to Girlfriend - Green Screen.mp4" type="video/mp4">
+                       
+                    </video>
+                     -->
                     <p id="timer" style="font-size: 80px;">25:00</p>
 
 
                     <div id="buttonsTimer">
-                         <button type="button" id ="playButton"class="btn btn-light btn-round">
+                        <button type="button" id="playButton" class="btn btn-light btn-round">
                             <span class="material-symbols-rounded">play_arrow</span>
                         </button>
-                       
-                        <button type="button" id ="restartButton" class="btn btn-light btn-round">
+
+                        <button type="button" id="restartButton" class="btn btn-light btn-round">
                             <span class="material-symbols-rounded">stop</span>
                         </button>
-                        
+
                     </div>
 
                     <hr>
                     <p>Elige el tipo de pausa</p>
 
-                    <button type="button" class="btn btn-light">5 min</button>
-                    <button type="button" class="btn btn-light">15 min</button>
+                    <button type="button" id="btn5min" class="btn btn-light">5 min</button>
+                    <button type="button" id="btn15min" class="btn btn-light">15 min</button>
+
 
                 </div>
             </div>
             <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-outline-secondary" id="btnNuevaTarea" data-bs-toggle="modal"
+                <button type="button"  class="btn btn-outline-secondary" id="btnNuevaTarea" data-bs-toggle="modal"
                     data-bs-target="#nuevaTareaModal">
                     Nueva tarea
                 </button>
@@ -64,7 +71,7 @@
                             <div class="card-body" style="background-color: transparent;">
                                 <h5 class="card-title text-center ">TO DO</h5>
                                 <div class="columna-Tareas-To-Do" style="max-height: 62vh; overflow-y: auto;">
-                                    
+
                                     <!-- <div class="card mt-4 m-2">
                                         <div class="card-body">
                                             <div class="row">
@@ -131,7 +138,7 @@
                             <div class="card-body">
                                 <h5 class="card-title text-center">DONE</h5>
                                 <div class="columna-Tareas-Done" style="max-height: 62vh; overflow-y: auto;">
-                                   <!-- <div class="card mt-4 m-2">
+                                    <!-- <div class="card mt-4 m-2">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-10">
@@ -175,7 +182,7 @@
                                                 25/04/2024 10:23</p>
                                         </div>
                                     </div>-->
-                                </div> 
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -208,20 +215,36 @@
                             <div class="mt-3" id="inputCategoria" style="display: none;">
                                 <label for="categoriaSelect" class="form-label">Selecciona una categoría</label>
                                 <select id="categoriaSelect" class="form-select">
-                                    <option value="Personal" data-color="rgb(250, 230, 199)">Personal</option>
-                                    <option value="Trabajo" data-color="rgb(247, 247, 247)">Trabajo</option>
-                                    <option value="Clase" data-color="rgb(240, 248, 255)">Clase</option>
+                                    <option value="Diseño" data-color="rgb(250, 230, 199)">Diseño</option>
+                                    <option value="Frontend" data-color="rgb(247, 247, 247)">Frontend</option>
+                                    <option value="Backend" data-color="rgb(240, 248, 255)">Backend</option>
                                 </select>
                             </div>
-                            
+
                         </div>
-                        <button type="submit" class="btn btn-primary">Crear tarea</button>
+                        <button type="submit" class="btnOrange">Crear tarea</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
     <!-- Modal OUT -->
+    <!-- Modal de confirmación -->
+    <div id="confirmacionUsuario">
+        <div id="confirmationModal" class="modal confirmation-modal">
+            <div class="modal-content">
+
+                <p>¿Estás seguro de que quieres eliminar esta tarjeta?</p>
+                <div class="row mx-auto"> 
+                    <button id="confirmDelete" style="width: fit-content;">Eliminar</button>
+                
+                    <button id="cancelDelete" class="btnBlue" style="width: fit-content;">Cancelar</button>
+                </div>
+               
+            </div>
+        </div>
+
+    </div>
     <script src="/main.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">

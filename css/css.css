@@ -59,3 +59,84 @@ body {
     border-radius: 2px;
 
 }
+
+/* Estilos del modal confirmación*/
+
+
+    #confirmacionUsuario .confirmation-modal {
+   
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+} 
+  
+#confirmacionUsuario .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 20%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+ 
+ 
+  #confirmacionUsuario button, .btnBlue, .btnOrange{
+    
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  #confirmDelete, .btnOrange {
+    background-color: #e47525;
+  }
+  #confirmDelete:hover,.btnOrange:hover {
+    background-color: #a45319;
+  }
+
+  .btnBlue{
+    background-color: #214b9e;
+  }
+  .btnBlue:hover {
+    background-color: #193469;
+  }
+  #btnNuevaTarea{
+    color: #214b9e
+  }
+  #btnNuevaTarea:hover{
+    background-color: #214b9e;
+    color: white;
+  }
+
+
+/* Estilos para ocultar el video inicialmente 
+.hidden {
+    display: none;
+}
+
+
+#greenScreenVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 999; Asegúrate de que el video esté encima de otros elementos
+    filter: brightness(0) invert(1); Oculta el fondo verde 
+    filter: chroma(keylime);
+    
+} */
+
+  
+  

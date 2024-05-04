@@ -1,11 +1,11 @@
 
-
+//CREACIÓN NUEVA TAREA
 document.getElementById('switchCategoria').addEventListener('change', function () {
     const inputCategoria = document.getElementById('inputCategoria');
     inputCategoria.style.display = this.checked ? 'block' : 'none';
 });
 
-//CREACIÓN NUEVA TAREA
+
 document.querySelector('form').addEventListener('submit', function (event) {
     event.preventDefault(); // Evitar que el formulario se envíe automáticamente
 
@@ -62,30 +62,74 @@ document.querySelector('form').addEventListener('submit', function (event) {
     document.getElementById('nombreTarea').value = '';
     document.getElementById('descripcionTarea').value = '';
 
-    // Event listener para eliminar tarjetas
-    document.addEventListener('click', function (event) {
-        if (event.target && event.target.id === 'deleteCard') {
-            event.target.closest('.card').remove();
-        }
-    });
+  // Event listener para eliminar tarjetas
+document.addEventListener('click', function (event) {
+    if (event.target && event.target.id === 'deleteCard') {
+        // Obtener la tarjeta
+        const card = event.target.closest('.card');
+        // Mostrar un mensaje de confirmación y pasar la tarjeta como argumento
+        showModal(card);
+    }
 });
 
+// Función para mostrar el modal de confirmación
+function showModal(card) {
+    document.getElementById("confirmationModal").style.display = "block";
 
-//timer
+    // Evento para el botón de confirmar eliminación
+    document.getElementById("confirmDelete").addEventListener("click", function() {
+        // Ocultar el modal
+        hideModal();
+        // Eliminar la tarjeta
+        card.remove();
+    });
 
+    // Evento para el botón de cancelar eliminación
+    document.getElementById("cancelDelete").addEventListener("click", function() {
+        // Ocultar el modal
+        hideModal();
+    });
+}
+
+// Función para ocultar el modal de confirmación
+function hideModal() {
+    document.getElementById("confirmationModal").style.display = "none";
+}
+
+});
+
+//TIMER
+
+// function showVideo() {
+//     // Oculta el temporizador
+//     document.getElementById('timer').classList.add('hidden');
+//     // Muestra el video
+//     document.getElementById('greenScreenVideo').classList.remove('hidden');
+// }
+// function hideVideo() {
+//     // Muestra el temporizador
+//     document.getElementById('timer').classList.remove('hidden');
+//     // Oculta el video
+//     document.getElementById('greenScreenVideo').classList.add('hidden');
+// }
 
 let timer; // Variable para el temporizador
 let isTimerRunning = false; // Variable para controlar si el temporizador está en funcionamiento o no
 let minutes = 25; // Duración predeterminada del temporizador en minutos
 let seconds = 0; // Inicializamos los segundos en 0
+let lastTimerDuration = 25; // Duración predeterminada del temporizador
+
 function startTimer() {
     isTimerRunning = true;
     timer = setInterval(updateTimer, 1000);
 }
+
 function stopTimer() {
     isTimerRunning = false;
     clearInterval(timer);
 }
+
+// Actualizar la duración del temporizador a 25 minutos cuando el temporizador de 5 o 15 minutos se complete
 function updateTimer() {
     // Verificar si los segundos han llegado a cero
     if (seconds === 0) {
@@ -93,6 +137,12 @@ function updateTimer() {
         if (minutes === 0) {
             // Si ambos son cero, detener el temporizador
             stopTimer();
+            // Cambiar la duración del temporizador a 25 minutos
+            lastTimerDuration = 25;
+            setTimerDuration(25);
+            // Cambiar el botón a "play"
+            document.getElementById('playButton').querySelector('span').innerText = 'play_arrow';
+            //showVideo();
             return;
         } else {
             // Si solo los segundos son cero, restar un minuto y establecer los segundos en 59
@@ -111,20 +161,23 @@ function updateTimer() {
     // Actualizar el texto del temporizador en el HTML
     document.getElementById('timer').innerText = `${formattedMinutes}:${formattedSeconds}`;
 }
+
 document.getElementById('restartButton').addEventListener('click', function () {
-    restartTimer();
+    restartTimer(); // Pasamos la duración actual como argumento
+    const playButton = document.querySelector('#playButton');
+    if (playButton.querySelector('span').innerText === 'pause') {
+        playButton.querySelector('span').innerText = 'play_arrow'; // Cambiar el texto del botón a "Play"
+    }
 });
 
+// Restablecer el temporizador con la última duración seleccionada
 function restartTimer() {
     stopTimer(); // Detener el temporizador si está en funcionamiento
-    // Restablecer los valores del temporizador a su estado inicial
-    minutes = 25;
+    minutes = lastTimerDuration;
     seconds = 1;
-    // Actualizar el temporizador en el HTML
-    updateTimer();
-    // Si se está reproduciendo el temporizador cuando se reinicia, iniciar nuevamente
+    updateTimer(); // Actualizar el temporizador en el HTML
     if (isTimerRunning) {
-        startTimer();
+        startTimer(); // Si se está reproduciendo el temporizador cuando se reinicia, iniciar nuevamente
     }
 }
 
@@ -137,3 +190,27 @@ document.querySelector('#playButton').addEventListener('click', function () {
         this.querySelector('span').innerText = 'play_arrow'; // Cambiar el texto del botón a "Play"
     }
 });
+
+setTimerDuration(0); //PARA PRUEBAS
+
+// Controlador de eventos para el botón de 5 minutos
+document.querySelector('#btn5min').addEventListener('click', function () {
+    lastTimerDuration = 5; // Guardar la última duración seleccionada
+    setTimerDuration(5); // Establecer la duración del temporizador a 5 minutos
+});
+
+// Controlador de eventos para el botón de 15 minutos
+document.querySelector('#btn15min').addEventListener('click', function () {
+    lastTimerDuration = 15; // Guardar la última duración seleccionada
+    setTimerDuration(15); // Establecer la duración del temporizador a 15 minutos
+});
+
+function setTimerDuration(duration) {
+    minutes = duration;
+    seconds = 1;
+    updateTimer();
+}
+
+
+
+//DRAG AND DROP
