@@ -20,7 +20,7 @@ document.querySelector('form').addEventListener('submit', function (event) {
     if (document.getElementById('switchCategoria').checked) {
         // Con categoría
         nuevaTarea = `
-        <div class="card mt-4 m-2" >
+        <div class="card mt-4 m-2">
             <div class="card-header d-flex justify-content-between"style="background-color: ${colorCategoria};">
                 <span>${categoria}</span>
                 <button type="button" class="btn-close" id="deleteCard" aria-label="Close"></button>
