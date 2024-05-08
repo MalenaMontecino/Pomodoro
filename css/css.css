@@ -119,24 +119,5 @@ body {
   }
 
 
-/* Estilos para ocultar el video inicialmente 
-.hidden {
-    display: none;
-}
-
-
-#greenScreenVideo {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 999; Asegúrate de que el video esté encima de otros elementos
-    filter: brightness(0) invert(1); Oculta el fondo verde 
-    filter: chroma(keylime);
-    
-} */
-
   
   

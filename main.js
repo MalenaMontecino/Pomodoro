@@ -5,7 +5,6 @@ document.getElementById('switchCategoria').addEventListener('change', function (
     inputCategoria.style.display = this.checked ? 'block' : 'none';
 });
 
-
 document.querySelector('form').addEventListener('submit', function (event) {
     event.preventDefault(); // Evitar que el formulario se envíe automáticamente
 
@@ -100,18 +99,7 @@ function hideModal() {
 
 //TIMER
 
-// function showVideo() {
-//     // Oculta el temporizador
-//     document.getElementById('timer').classList.add('hidden');
-//     // Muestra el video
-//     document.getElementById('greenScreenVideo').classList.remove('hidden');
-// }
-// function hideVideo() {
-//     // Muestra el temporizador
-//     document.getElementById('timer').classList.remove('hidden');
-//     // Oculta el video
-//     document.getElementById('greenScreenVideo').classList.add('hidden');
-// }
+
 
 let timer; // Variable para el temporizador
 let isTimerRunning = false; // Variable para controlar si el temporizador está en funcionamiento o no
