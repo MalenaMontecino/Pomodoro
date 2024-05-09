@@ -1,101 +1,4 @@
 
-// //CREACIÓN NUEVA TAREA
-// document.getElementById('switchCategoria').addEventListener('change', function () {
-//     const inputCategoria = document.getElementById('inputCategoria');
-//     inputCategoria.style.display = this.checked ? 'block' : 'none';
-// });
-
-// document.querySelector('form').addEventListener('submit', function (event) {
-//     event.preventDefault(); // Evitar que el formulario se envíe automáticamente
-
-//     const nombreTarea = document.getElementById('nombreTarea').value;
-//     const descripcionTarea = document.getElementById('descripcionTarea').value;
-//     const categoriaSelect = document.getElementById('categoriaSelect');
-//     const categoria = categoriaSelect.value;
-//     const colorCategoria = categoriaSelect.options[categoriaSelect.selectedIndex].dataset.color;
-
-//     // Crear la nueva tarjeta de tarea
-//     let nuevaTarea = '';
-//     if (document.getElementById('switchCategoria').checked) {
-//         // Con categoría
-//         nuevaTarea = `
-//         <div id="drag1" class="card mt-4 m-2" draggable="true" ondragstart="drag(event)">
-//             <div class="card-header d-flex justify-content-between"style="background-color: ${colorCategoria};">
-//                 <span>${categoria}</span>
-//                 <button type="button" class="btn-close" id="deleteCard" aria-label="Close"></button>
-//             </div>
-//             <div class="card-body">
-//                 <div class="row">
-//                     <div class="col-10">
-//                         <h5 class="card-title">${nombreTarea}</h5>
-//                     </div>
-//                 </div>
-//                 <p class="card-text">${descripcionTarea}</p>
-//                 <p style="opacity:70%;" class="card-text d-flex justify-content-end">${new Date().toLocaleString()}</p>
-//             </div>
-//         </div>
-    
-//         `;
-//     } else {
-//         // Sin categoria
-//         nuevaTarea = `
-//             <div id="drag1" class="card mt-4 m-2" draggable="true" ondragstart="drag(event)">
-//                 <div class="card-body">
-//                     <div class="row">
-//                         <div class="col-10">
-//                             <h5 class="card-title">${nombreTarea}</h5>
-//                         </div>
-//                         <button type="button" id="deleteCard" class="btn-close d-flex justify-content-end" aria-label="Close"></button>
-//                     </div>
-//                     <p class="card-text">${descripcionTarea}</p>
-//                     <p style="opacity:70%;" class="card-text d-flex justify-content-end">${new Date().toLocaleString()}</p>
-//                 </div>
-//             </div>
-//         `;
-//     }
-
-//     // Agregar la nueva tarjeta de tarea a la columna "To Do"
-//     document.querySelector('#toDo .columna-Tareas-To-Do').innerHTML += nuevaTarea;
-
-//     // Borrar el contenido de los campos del formulario
-//     document.getElementById('nombreTarea').value = '';
-//     document.getElementById('descripcionTarea').value = '';
-
-//     // Event listener para eliminar tarjetas
-//     document.addEventListener('click', function (event) {
-//         if (event.target && event.target.id === 'deleteCard') {
-//             // Obtener la tarjeta
-//             const card = event.target.closest('.card');
-//             // Mostrar un mensaje de confirmación y pasar la tarjeta como argumento
-//             showModal(card);
-//         }
-//     });
-
-//     // Función para mostrar el modal de confirmación
-//     function showModal(card) {
-//         document.getElementById("confirmationModal").style.display = "block";
-
-//         // Evento para el botón de confirmar eliminación
-//         document.getElementById("confirmDelete").addEventListener("click", function () {
-//             // Ocultar el modal
-//             hideModal();
-//             // Eliminar la tarjeta
-//             card.remove();
-//         });
-
-//         // Evento para el botón de cancelar eliminación
-//         document.getElementById("cancelDelete").addEventListener("click", function () {
-//             // Ocultar el modal
-//             hideModal();
-//         });
-//     }
-
-//     // Función para ocultar el modal de confirmación
-//     function hideModal() {
-//         document.getElementById("confirmationModal").style.display = "none";
-//     }
-
-// });
 document.getElementById('switchCategoria').addEventListener('change', function () {
     const inputCategoria = document.getElementById('inputCategoria');
     inputCategoria.style.display = this.checked ? 'block' : 'none';
@@ -109,9 +12,11 @@ document.querySelector('form').addEventListener('submit', function (event) {
     const categoriaSelect = document.getElementById('categoriaSelect');
     const categoria = categoriaSelect.value;
     const colorCategoria = categoriaSelect.options[categoriaSelect.selectedIndex].dataset.color;
-
+  // Crear un ID único para la nueva tarea
+  const taskId = 'task-' + Math.random().toString(36).substr(2, 9); 
     // Crear la nueva tarjeta de tarea
     const nuevaTarea = document.createElement('div');
+    nuevaTarea.id = taskId; // Establecer el ID único
     nuevaTarea.classList.add('card', 'mt-4', 'm-2');
     nuevaTarea.setAttribute('draggable', 'true');
     nuevaTarea.addEventListener('dragstart', drag);
@@ -201,8 +106,38 @@ function hideModal() {
     document.getElementById("confirmationModal").style.display = "none";
 }
 
-//que vuelva a funcionar el drag and drop
-// añadir el botón de cerrar en la tarea sin categoria
+
+//DRAG AND DROP
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    var draggedElement = document.getElementById(data);
+    
+    // Verificar si el elemento se está soltando en la columna deseada
+    if (ev.target.id === "cardDone") {
+        // Obtener todas las tareas con la clase 'done-task'
+        const doneTasks = document.querySelectorAll('.done-task');
+        // Desactivar el evento ondragstart para todas las tareas en la columna "DONE"
+        doneTasks.forEach(task => {
+            task.setAttribute("draggable", "false");
+            task.removeEventListener("dragstart", drag);
+        });
+        // Agregar la clase 'done-task' a la tarea arrastrada
+        draggedElement.classList.add('done-task');
+    }
+    
+    ev.target.appendChild(draggedElement);
+}
+
+
+
 
 //TIMER
 
@@ -312,20 +247,3 @@ function setTimerDuration(duration) {
     updateTimer();
 }
 
-
-
-//DRAG AND DROP
-function allowDrop(ev) {
-    ev.preventDefault();
-}
-
-function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-}
-
-function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    var draggedElement = document.getElementById(data);
-    ev.target.appendChild(draggedElement);
-}
