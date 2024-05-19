@@ -31,15 +31,15 @@ document.querySelector('form').addEventListener('submit', function (event) {
     cardDescription.classList.add('card-text');
     cardDescription.textContent = descripcionTarea;
 
-    const cardTimestamp = document.createElement('p');
-    cardTimestamp.classList.add('card-text', 'd-flex', 'justify-content-end');
-    cardTimestamp.id = 'rowTime';
-    cardTimestamp.textContent = new Date().toLocaleString();
-    cardTimestamp.style.opacity = '70%';
+    const fecha = document.createElement('p');
+    fecha.classList.add('card-text', 'd-flex', 'justify-content-end');
+    fecha.id = 'rowTime';
+    fecha.textContent = new Date().toLocaleString();
+    fecha.style.opacity = '70%';
 
     cardBody.appendChild(cardTitle);
     cardBody.appendChild(cardDescription);
-    cardBody.appendChild(cardTimestamp);
+    cardBody.appendChild(fecha);
 
  const closeButton = document.createElement('button');
         closeButton.type = 'button';
